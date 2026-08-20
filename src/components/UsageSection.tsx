@@ -71,32 +71,32 @@ export const UsageSection: React.FC<UsageSectionProps> = ({
       </div>
 
       {/* Grid of Indicator inputs */}
-      <div className="space-y-3.5">
+      <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 xl:grid-cols-4">
         {indicatorRows.map((row) => {
           const rawVal = usage[row.id];
 
           return (
             <div
               key={row.id}
-              className="p-3.5 bg-slate-50/80 border border-slate-200/90 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 transition-colors"
+              className="flex h-full flex-col justify-between gap-4 rounded-lg border border-slate-200/90 bg-slate-50/80 p-3.5 transition-colors hover:bg-slate-50"
             >
               <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-md bg-white border border-slate-200 shadow-2xs">
                   {getIcon(row.id)}
                 </div>
-                <div>
-                  <h3 className="text-xs font-bold text-slate-800">
+                <div className="min-w-0">
+                  <h3 className="text-xs font-bold leading-tight text-slate-800">
                     {row.label}
                   </h3>
-                  <div className="text-[11px] text-slate-500 font-mono">
+                  <div className="mt-1 text-[10px] text-slate-500 font-mono whitespace-nowrap">
                     Tarifa: {formatTariff(row.tariff)}
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between sm:justify-end gap-4">
+              <div className="flex items-end justify-between gap-3">
                 {/* Input control */}
-                <div className="relative w-36">
+                <div className="relative min-w-0 flex-1">
                   <input
                     id={`input-${row.id}`}
                     type="text"
@@ -106,13 +106,13 @@ export const UsageSection: React.FC<UsageSectionProps> = ({
                     onChange={(e) => handleInputChange(row.id, e.target.value)}
                     className="w-full bg-white border border-slate-200 rounded-md py-1 px-2.5 text-right text-xs font-bold text-slate-900 font-mono focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 focus:outline-hidden"
                   />
-                  <span className="block text-[10px] text-slate-400 text-right mt-0.5">
+                  <span className="mt-0.5 block text-right text-[10px] text-slate-400">
                     {formatQuantity(row.currentQuantity)} un
                   </span>
                 </div>
 
                 {/* Subtotal */}
-                <div className="text-right min-w-[80px]">
+                <div className="min-w-[76px] text-right">
                   <span className="text-[10px] uppercase font-bold text-slate-400 block">
                     Custo
                   </span>
