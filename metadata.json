@@ -1,0 +1,9 @@
+{
+  "name": "Previsão de Uso — RD Conversas",
+  "description": "Controle de utilização, previsão de consumo, campanhas e cálculo automático de recarga para RD Conversas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
+
